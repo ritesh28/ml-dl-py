@@ -6,17 +6,23 @@
 
 # ML-DL-py
 
-A curated collection of Python notebooks for Machine Learning (ML) and Deep Learning (DL) applications, covering end-to-end workflows, model development, experimentation, and deployment pipelines.
+Hands-on Machine Learning notebooks in Python — each example is a self-contained [uv](https://docs.astral.sh/uv/) project with its own environment and README.
 
 ## Description
 
-This repository contains a comprehensive collection of Python notebooks focused on Machine Learning (ML) and Deep Learning (DL) applications, workflows, and end-to-end pipelines. It includes practical implementations of data preprocessing, feature engineering, regression, classification, clustering, model training, evaluation, optimization, and deployment techniques using modern AI frameworks and libraries. From classical ML algorithms to advanced neural network architectures, the notebooks provide a structured and scalable approach to experimenting with AI and automation solutions.
+Practical walkthroughs of classical ML workflows: load data, train a model, evaluate, and experiment. Topics include text classification, face detection, generative modeling, and digit recognition.
 
-## Files
+## Project layout
 
-| Name                                                                                                           | Description                    | Tags                                 |
-| -------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------------------------------------ |
-| [naive-bayes-text-classification.ipynb](naive-bayes-text-classification/naive-bayes-text-classification.ipynb) | Text classification using ML   | Classification, ML, Naive Bayes      |
-| [face-detection-pipeline.ipynb](source/face-detection-pipeline.ipynb)                                          | Face detection and recognition | feature extraction, negative dataset |
-| [generate-new-data-using-gmm.ipynb](source/generate-new-data-using-gmm.ipynb)                                  | Generate synthetic data        | Data Generation, Clustering, GMM     |
-| [handwritten-digits.ipynb](source/handwritten-digits.ipynb)                                                    | Handwritten digit recognition  | Classification, MNIST                |
+Each example lives in its own root-level folder. Folder names follow **algorithm + task** (e.g. `naive-bayes-text-classification`, `hog-svm-face-detection`).
+
+Every project is a [uv](https://docs.astral.sh/uv/) environment: `cd` into the folder and run `uv sync`, then open the notebook with that project’s kernel.
+
+## Projects
+
+| Name                                                                                | Description                                                  |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| [naive-bayes-text-classification](naive-bayes-text-classification/)                 | Multinomial Naive Bayes text classification on 20 Newsgroups |
+| [hog-svm-face-detection](hog-svm-face-detection/)                                   | HOG features + linear SVM face detector                      |
+| [gmm-handwritten-digit-generation](gmm-handwritten-digit-generation/)               | PCA + GMM to synthesize handwritten digits                   |
+| [isomap-gaussian-nb-digit-classification](isomap-gaussian-nb-digit-classification/) | Isomap embedding + GaussianNB digit classification           |

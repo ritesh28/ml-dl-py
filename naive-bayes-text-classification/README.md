@@ -30,7 +30,7 @@ uv run python -m ipykernel install --user --name=naive-bayes-text-classification
 
 ## Run the notebook
 
-Open `naive-bayes-text-classification.ipynb` in your IDE and select the project `.venv` or the `naive-bayes-text-classification` kernel.
+Open `naive-bayes-text-classification.ipynb`, click **Select Kernel** → **Jupyter Kernel…**, and choose **Python (naive-bayes-text-classification)**. Reload the IDE if you do not see it.
 
 ## Dependencies
 
