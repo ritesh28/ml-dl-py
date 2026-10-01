@@ -4,21 +4,16 @@ Local text-to-speech with **[hexgrad/Kokoro-82M](https://huggingface.co/hexgrad/
 
 ## What it does
 
-1. **Load pipeline** — Builds a `KPipeline` for American English (`lang_code='a'`), which downloads Kokoro-82M weights from Hugging Face on first run into `HF_HOME` (default shared path: `~/ml-models`).
-2. **Synthesize** — Converts sample text to speech with a chosen voice (default `af_heart`).
-3. **Play & save** — Plays audio in the notebook and writes WAV files under `output/` at 24 kHz.
+1. **Load env** — Reads repo-root `.env` for `HF_HOME` / `HF_TOKEN` (see `.env.example`).
+2. **Load pipeline** — Builds a `KPipeline` for American English (`lang_code='a'`), which downloads Kokoro-82M weights from Hugging Face on first run into `HF_HOME`.
+3. **Synthesize** — Converts sample text to speech with a chosen voice (default `af_heart`).
+4. **Play & save** — Plays audio in the notebook and writes WAV files under `output/` at 24 kHz.
 
 ## Setup
 
 Uses [uv](https://docs.astral.sh/uv/) for the project environment.
 
-**Model cache (`HF_HOME`):** Kokoro downloads weights from Hugging Face on first run. Point `HF_HOME` at a shared folder so models are reused across projects:
-
-```bash
-export HF_HOME="$HOME/ml-models"
-```
-
-On this machine that is `~/ml-models`. Add the export to `~/.bash_profile` or `~/.zshrc`, then open a new terminal (or `source` the profile) before running the notebook.
+**Env (`.env`):** Copy the repo-root `.env.example` to `.env` and set `HF_HOME` (default `~/ml-models`) and optionally `HF_TOKEN`. The notebook loads these before downloading weights.
 
 **System dependency:** Kokoro uses [espeak-ng](https://github.com/espeak-ng/espeak-ng) for English out-of-dictionary fallback. On macOS:
 
@@ -51,10 +46,11 @@ Open `hf-text-to-speech.ipynb`, click **Select Kernel** → **Jupyter Kernel…*
 
 ## Dependencies
 
-| Package      | Role                                           |
-| ------------ | ---------------------------------------------- |
-| kokoro       | Kokoro-82M inference (`KPipeline`)             |
-| torch        | Model runtime                                  |
-| transformers | Hugging Face model loading (pinned for wheels) |
-| soundfile    | Write WAV output                               |
-| ipykernel    | Jupyter kernel for the local environment       |
+| Package       | Role                                           |
+| ------------- | ---------------------------------------------- |
+| kokoro        | Kokoro-82M inference (`KPipeline`)             |
+| torch         | Model runtime                                  |
+| transformers  | Hugging Face model loading (pinned for wheels) |
+| soundfile     | Write WAV output                               |
+| python-dotenv | Load repo-root `.env` (`HF_HOME` / token)      |
+| ipykernel     | Jupyter kernel for the local environment       |
