@@ -18,6 +18,16 @@ Each example lives in its own root-level folder. Folder names follow **algorithm
 
 Every project is a [uv](https://docs.astral.sh/uv/) environment: `cd` into the folder and run `uv sync`, then open the notebook with that project’s kernel.
 
+## Model cache (`HF_HOME`)
+
+Hugging Face downloads (e.g. Kokoro-82M in [hf-text-to-speech](hf-text-to-speech/)) are stored under a shared home-directory cache so projects do not re-download weights:
+
+```bash
+export HF_HOME="$HOME/ml-models"
+```
+
+On this machine that resolves to `~/ml-models` (`/Users/riteshraj/ml-models`). Set `HF_HOME` in your shell profile (e.g. `~/.bash_profile` or `~/.zshrc`) so notebooks and CLI tools pick it up automatically.
+
 ## Projects
 
 | Name                                                                                | Description                                                  |
@@ -26,3 +36,4 @@ Every project is a [uv](https://docs.astral.sh/uv/) environment: `cd` into the f
 | [hog-svm-face-detection](hog-svm-face-detection/)                                   | HOG features + linear SVM face detector                      |
 | [gmm-handwritten-digit-generation](gmm-handwritten-digit-generation/)               | PCA + GMM to synthesize handwritten digits                   |
 | [isomap-gaussian-nb-digit-classification](isomap-gaussian-nb-digit-classification/) | Isomap embedding + GaussianNB digit classification           |
+| [hf-text-to-speech](hf-text-to-speech/)                                             | Local TTS with hexgrad/Kokoro-82M from Hugging Face          |
