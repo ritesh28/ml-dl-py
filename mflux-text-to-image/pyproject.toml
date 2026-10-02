@@ -10,3 +10,13 @@ dependencies = [
     "pillow>=11.0.0",
     "python-dotenv>=1.0.0",
 ]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+pythonVersion = "3.12"
+
+[tool.basedpyright]
+venvPath = "."
+venv = ".venv"
+pythonVersion = "3.12"

@@ -1,0 +1,19 @@
+{
+  "executionEnvironments": [
+    {
+      "root": "hf-text-to-speech",
+      "pythonVersion": "3.12",
+      "extraPaths": ["hf-text-to-speech/.venv/lib/python3.12/site-packages"]
+    },
+    {
+      "root": "mflux-text-to-image",
+      "pythonVersion": "3.12",
+      "extraPaths": ["mflux-text-to-image/.venv/lib/python3.12/site-packages"]
+    },
+    {
+      "root": "rembg-background-removal",
+      "pythonVersion": "3.12",
+      "extraPaths": ["rembg-background-removal/.venv/lib/python3.12/site-packages"]
+    }
+  ]
+}

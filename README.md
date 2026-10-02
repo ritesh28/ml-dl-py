@@ -25,7 +25,7 @@ Copy [`.env.example`](.env.example) to `.env` at the repo root and set:
 - `HF_HOME` — shared model cache (default `~/ml-models`)
 - `HF_TOKEN` — optional Hugging Face token for higher rate limits
 
-Notebooks in [hf-text-to-speech](hf-text-to-speech/) and [mflux-text-to-image](mflux-text-to-image/) load this file via `python-dotenv`. `.env` is gitignored.
+Notebooks / CLIs in [hf-text-to-speech](hf-text-to-speech/), [mflux-text-to-image](mflux-text-to-image/), and [rembg-background-removal](rembg-background-removal/) load this file via `python-dotenv`. `.env` is gitignored.
 
 ## Projects
 
@@ -37,3 +37,4 @@ Notebooks in [hf-text-to-speech](hf-text-to-speech/) and [mflux-text-to-image](m
 | [isomap-gaussian-nb-digit-classification](isomap-gaussian-nb-digit-classification/) | Isomap embedding + GaussianNB digit classification           |
 | [hf-text-to-speech](hf-text-to-speech/)                                             | Local TTS with hexgrad/Kokoro-82M from Hugging Face          |
 | [mflux-text-to-image](mflux-text-to-image/)                                         | FLUX.1-schnell via mflux/MLX (4-bit; not HF diffusers)       |
+| [rembg-background-removal](rembg-background-removal/)                               | Batch background removal with danielgatis/rembg              |

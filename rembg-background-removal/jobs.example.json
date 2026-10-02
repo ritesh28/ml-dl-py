@@ -1,0 +1,12 @@
+[
+  {
+    "id": "animal_1",
+    "input_path": "input/animal_1.jpg",
+    "output_path": "output/animal_1.png"
+  },
+  {
+    "id": "car_1",
+    "input_path": "input/car_1.jpg",
+    "output_path": "output/car_1.png"
+  }
+]
