@@ -38,6 +38,29 @@ uv run python -m ipykernel install --user --name=hf-text-to-speech --display-nam
 
 Open `hf-text-to-speech.ipynb`, click **Select Kernel** → **Jupyter Kernel…**, and choose **Python (hf-text-to-speech)**. Reload the IDE if you do not see it.
 
+## CLI batch synthesize
+
+`generate.py` loads the pipeline once, then runs a list of jobs with `id`, `text`, and `output_path`. It prints progress (id + file + seconds) and returns per-item `ok` / `error`.
+
+```bash
+cd hf-text-to-speech
+uv run python generate.py jobs.example.json
+uv run python generate.py --jobs '[{"id":"hi","text":"Hello.","output_path":"output/hi.wav"}]' --results-json output/results.json
+```
+
+Jobs JSON (objects preferred; triples also work):
+
+```json
+[
+  {"id": "one", "text": "Hello.", "output_path": "output/one.wav"},
+  ["two", "Second line.", "output/two.wav"]
+]
+```
+
+Optional object keys: `speed`. `prompt` is accepted as an alias for `text`.
+
+Each result includes `"id"` and `"duration_s"` (audio length in seconds). Exit code `0` if all succeeded, `1` if any failed, `2` if jobs JSON is invalid. The final stdout line is the full results JSON list.
+
 ## Voices & languages
 
 - Voices are listed in the model’s [VOICES.md](https://huggingface.co/hexgrad/Kokoro-82M/blob/main/VOICES.md).

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "kokoro_intro",
+    "text": "Kokoro is an open-weight TTS model with 82 million parameters. Despite its lightweight architecture, it delivers comparable quality to larger models while being significantly faster and more cost-efficient.",
+    "output_path": "output/kokoro_intro.wav"
+  },
+  {
+    "id": "hello_local",
+    "text": "Hello from Hugging Face. This is Kokoro text to speech running locally.",
+    "output_path": "output/hello_local.wav"
+  }
+]

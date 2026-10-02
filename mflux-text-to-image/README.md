@@ -44,6 +44,27 @@ uv run python -m ipykernel install --user --name=mflux-text-to-image --display-n
 2. Open `mflux-text-to-image.ipynb` → kernel **Python (mflux-text-to-image)**.
 3. Restart the kernel if a previous run crashed, then run cells top to bottom.
 
+## CLI batch generate
+
+`generate.py` loads the model once, then runs a list of jobs with `id`, `prompt`, and `output_path`. It prints progress (id + file + seconds) and returns per-item `ok` / `error`.
+
+```bash
+cd mflux-text-to-image
+uv run python generate.py jobs.example.json
+uv run python generate.py --jobs '[{"id":"bike","prompt":"a red bicycle","output_path":"output/bike.png"}]' --results-json output/results.json
+```
+
+Jobs JSON (objects preferred; triples also work):
+
+```json
+[
+  {"id": "one", "prompt": "prompt one", "output_path": "output/one.png"},
+  ["two", "prompt two", "output/two.png"]
+]
+```
+
+Each result includes `"id"`. Exit code `0` if all succeeded, `1` if any failed, `2` if jobs JSON is invalid. The final stdout line is the full results JSON list.
+
 ## Tips for 16 GB
 
 - Keep **`quantize=4`** (do not use 8-bit or full precision).

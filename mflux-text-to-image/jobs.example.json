@@ -1,0 +1,12 @@
+[
+  {
+    "id": "human_thinking_book_illustration",
+    "prompt": "A thoughtful human deep in thought, hand on chin, Book Illustration style, detailed ink and watercolor, storybook art",
+    "output_path": "output/human_thinking_book_illustration.png"
+  },
+  {
+    "id": "january_calendar_page",
+    "prompt": "A minimalist cartoon illustration for a calendar page. At the top, the text clearly reads 'JANUARY'. Below the text, a clean vector drawing of a man sitting peacefully on a chair. Flat design, muted corporate pastel colors, line art, white background, highly legible layout.",
+    "output_path": "output/january_calendar_page.png"
+  }
+]
