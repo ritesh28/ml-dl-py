@@ -211,11 +211,20 @@ def generate_from_list(
 
 def _parse_jobs_arg(raw: str) -> list[Any]:
     """Parse jobs from a JSON file path or a JSON string."""
-    path = Path(raw)
-    if path.is_file():
-        text = path.read_text(encoding="utf-8")
-    else:
+    stripped = raw.lstrip()
+    # Inline JSON: don't call Path.is_file() — long strings raise ENAMETOOLONG on macOS.
+    if stripped.startswith(("[", "{")):
         text = raw
+    else:
+        path = Path(raw)
+        try:
+            is_file = path.is_file()
+        except OSError:
+            is_file = False
+        if is_file:
+            text = path.read_text(encoding="utf-8")
+        else:
+            text = raw
     data = json.loads(text)
     if not isinstance(data, list):
         raise ValueError("jobs JSON must be a list")
