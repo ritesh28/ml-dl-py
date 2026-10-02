@@ -25,7 +25,7 @@ Copy [`.env.example`](.env.example) to `.env` at the repo root and set:
 - `HF_HOME` — shared model cache (default `~/ml-models`)
 - `HF_TOKEN` — optional Hugging Face token for higher rate limits
 
-Notebooks in [hf-text-to-speech](hf-text-to-speech/) and [hf-text-to-image](hf-text-to-image/) load this file via `python-dotenv`. `.env` is gitignored.
+Notebooks in [hf-text-to-speech](hf-text-to-speech/) and [mflux-text-to-image](mflux-text-to-image/) load this file via `python-dotenv`. `.env` is gitignored.
 
 ## Projects
 
@@ -36,4 +36,4 @@ Notebooks in [hf-text-to-speech](hf-text-to-speech/) and [hf-text-to-image](hf-t
 | [gmm-handwritten-digit-generation](gmm-handwritten-digit-generation/)               | PCA + GMM to synthesize handwritten digits                   |
 | [isomap-gaussian-nb-digit-classification](isomap-gaussian-nb-digit-classification/) | Isomap embedding + GaussianNB digit classification           |
 | [hf-text-to-speech](hf-text-to-speech/)                                             | Local TTS with hexgrad/Kokoro-82M from Hugging Face          |
-| [hf-text-to-image](hf-text-to-image/)                                               | Local text-to-image with Stable Diffusion v1.5               |
+| [mflux-text-to-image](mflux-text-to-image/)                                         | FLUX.1-schnell via mflux/MLX (4-bit; not HF diffusers)       |
